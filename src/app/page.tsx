@@ -1,7 +1,10 @@
-const Page = () => {
+import { prisma } from "@/lib/db";
+const Page = async () => {
+  const users = await prisma.user.findMany();
+
   return (
     <div className="">
-      Hii
+      {JSON.stringify(users, null, 2)}
     </div>
   );
 }
